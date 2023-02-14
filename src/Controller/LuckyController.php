@@ -15,12 +15,11 @@ class LuckyController extends AbstractController
         return $this->render('bezoker/number.html.twig',['number'=>$number]);
     }
 
-    #[Route('lucky/number/{max}', name:'random_number')]
-    public function numbers(int $max):response
+    #[Route('lucky/random_number/{max}', name:'random_number')]
+    public function numbers(int $max): response
     {
         $dagen=["maandag", "dinsdag", "woensdag", "donderdag", "vrijdag"];
         $number = random_int(0,$max);
-        return $this->render('bezoker/random_number.html.twig',['number'=>$number],['days'=>$dagen]);
+        return $this->render('bezoker/random_number.html.twig',['number'=>$number,'days'=>$dagen]);
     }
-
 }
